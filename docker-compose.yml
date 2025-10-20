@@ -1,0 +1,27 @@
+services:
+  dev:
+    build: .
+    container_name: ai-bootcamp-dev
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/workspace
+    env_file:
+      - .env
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+    command: >
+      uv run jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token= --allow-root
+
+  ollama:
+    image: ollama/ollama:latest
+    ports: ["11434:11434"]
+    volumes:
+      - ollama:/root/.ollama
+    gpus: all  # enable NVIDIA GPUs with the Container Toolkit installed
+
+volumes:
+  ollama:

@@ -1,0 +1,16 @@
+[project]
+name = "ai-bootcamp"
+version = "0.1.0"
+description = "AI Bootcamp local environment (uv + Docker + Ollama)"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "openai>=1.51",
+    "requests>=2.32",
+    "minsearch>=0.0.4",
+    "jupyter>=1.0.0",
+    "tqdm",
+    "sentence-transformers",
+    "youtube-transcript-api",
+    "python-frontmatter"
+]
