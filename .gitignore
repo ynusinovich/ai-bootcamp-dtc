@@ -10,4 +10,6 @@ venv/
 data/
 project_planning/*
 *_draft.ipynb
+*_draft_*.ipynb
 *_notes.txt
+week2/summaries/*
