@@ -20,7 +20,7 @@ OPENAI_API_KEY=sk-...
 ```bash
 docker run --rm -v "$PWD:/w" -w /w ghcr.io/astral-sh/uv:python3.11-bookworm uv lock
 docker compose up -d --build
-docker exec -it ollama ollama pull llama3.1:8b
+docker exec -it ai-bootcamp-dtc-ollama-1 ollama pull llama3.1:8b
 ```
 
 ### Stop containers (keep data/volumes)

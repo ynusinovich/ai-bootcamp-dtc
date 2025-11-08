@@ -22,5 +22,18 @@ dependencies = [
     "beautifulsoup4>=4.12",
     "tiktoken>=0.7",
     "lxml>=5.2",
-    "html5lib>=1.1"
+    "html5lib>=1.1",
+    "pydantic-ai",
+    "pydantic"
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "langwatch-scenario"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["week3/wikiagent/tests"]
+pythonpath = ["week3"]

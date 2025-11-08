@@ -14,7 +14,7 @@ WORKDIR /workspace
 COPY pyproject.toml uv.lock README.md ./
 
 # Install deps but DO NOT install the project itself
-RUN uv sync --frozen --no-install-project
+RUN uv sync --frozen --no-install-project --extra dev
 
 # Bring in the rest (code and notebooks)
 # This layer rebuilds whenever source code changes

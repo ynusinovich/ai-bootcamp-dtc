@@ -1,0 +1,8 @@
+{
+  "python.defaultInterpreterPath": "/opt/venv/bin/python",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.cwd": "${workspaceFolder}",
+  "python.testing.pytestArgs": ["week3/wikiagent/tests"],
+  "python.envFile": "${workspaceFolder}/.env"
+}
