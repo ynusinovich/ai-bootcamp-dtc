@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   dev:
     build: .
@@ -11,17 +13,33 @@ services:
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - OLLAMA_HOST=http://ollama:11434
+      - DATABASE_URL=postgresql://monitoring:monitoring@postgres:5432/wikiagent_monitoring
     depends_on:
       - ollama
+      - postgres
     command: >
       uv run jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token= --allow-root
 
   ollama:
     image: ollama/ollama:latest
-    ports: ["11434:11434"]
+    ports:
+      - "11434:11434"
     volumes:
       - ollama:/root/.ollama
-    gpus: all  # enable NVIDIA GPUs with the Container Toolkit installed
+    gpus: all
+
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: wikiagent_monitoring
+      POSTGRES_USER: monitoring
+      POSTGRES_PASSWORD: monitoring
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
 volumes:
   ollama:
+  pgdata:

@@ -8,7 +8,6 @@ dependencies = [
     "openai>=1.51",
     "requests>=2.32",
     "minsearch>=0.0.4",
-    "jupyter>=1.0.0",
     "tqdm",
     "sentence-transformers",
     "youtube-transcript-api",
@@ -24,14 +23,21 @@ dependencies = [
     "lxml>=5.2",
     "html5lib>=1.1",
     "pydantic-ai",
-    "pydantic"
+    "pydantic",
+    "jaxn",
+    "python-dotenv",
+    "logfire",
+    "jaeger",
+    "langwatch",
+    "psycopg[binary]>=3.2"
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest",
     "pytest-asyncio",
-    "langwatch-scenario"
+    "langwatch-scenario",
+    "jupyter>=1.0.0"
 ]
 
 [tool.pytest.ini_options]

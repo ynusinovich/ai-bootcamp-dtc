@@ -57,5 +57,5 @@ def test_llm_judge_sequence_and_refs():
     ).output
 
     assert verdict.search_first, "LLM judge: expected search first"
-    assert verdict.got_2_to_5_pages, "LLM judge: expected 2–5 page fetches"
+    assert verdict.got_2_to_5_pages, "LLM judge: expected 2-5 page fetches"
     assert verdict.references_present, "LLM judge: expected at least one reference URL"

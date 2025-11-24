@@ -2,3 +2,6 @@
 	path = ai-data-pipelines
 	url = https://github.com/alexeygrigorev/ai-data-pipelines.git
 	branch = main
+[submodule "ai-bootcamp-codespace"]
+	path = ai-bootcamp-codespace
+	url = https://github.com/alexeygrigorev/ai-bootcamp-codespace

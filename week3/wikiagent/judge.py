@@ -5,6 +5,10 @@ from typing import List, Dict
 
 from .csvlog import append_row 
 
+from pydantic import BaseModel
+from pydantic_ai import Agent, UsageLimits
+from pydantic_ai.models.openai import OpenAIChatModel
+
 # CSV utils
 def _read_csv(path: str) -> List[Dict[str, str]]:
     p = Path(path)
@@ -53,11 +57,8 @@ def judge_manual(csv_in: str, csv_out: str | None) -> None:
     if not changed:
         print("Nothing to label (all rows already have correct/complete).")
 
-# LLM mode (optional)
+# LLM mode
 def judge_llm(csv_in: str, csv_out: str | None, model_name: str, limit: int | None) -> None:
-    from pydantic import BaseModel
-    from pydantic_ai import Agent, UsageLimits
-    from pydantic_ai.models.openai import OpenAIChatModel
 
     class Verdict(BaseModel):
         correct: bool

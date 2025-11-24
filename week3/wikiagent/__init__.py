@@ -1,2 +1,3 @@
-from .wikiagent import run_sync
-__all__ = ["run_sync"]
+from .wikiagent import agent, run_sync
+
+__all__ = ["agent", "run_sync"]
